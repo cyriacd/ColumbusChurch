@@ -1,7 +1,6 @@
 package org.columbuschurch.columbuschurch;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,14 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private View mView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     return "CONTACT";
                 case 3:
-                    return "OTHER";
+                    return "NEWS";
             }
             return null;
         }

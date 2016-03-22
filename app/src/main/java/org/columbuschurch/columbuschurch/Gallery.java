@@ -2,14 +2,11 @@ package org.columbuschurch.columbuschurch;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,13 +35,7 @@ public class Gallery extends AppCompatActivity {
         }
     }
 
-    public void addImage(InputStream is){
-
-    }
-
     class getPictures extends AsyncTask<String, String, String> {
-
-        private Exception exception;
 
         @Override
         protected void onPreExecute(){
@@ -75,15 +66,17 @@ public class Gallery extends AppCompatActivity {
             LinearLayout piclayout = (LinearLayout) findViewById(R.id.gallery_preview_scroll_layout);
             image = new ImageView(Gallery.this);
             image.setImageBitmap(bmImg);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, 0);
-            image.setLayoutParams(lp);
             piclayout.addView(image);
             View parent = (View)image.getParent();
             int width = parent.getWidth();
-            //TODO:fix the width vs height ratio
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(width, width);
-            lp1.setMargins(0, 0, 0, 0);
+            int height = (int)(width*1.0);
+            try {
+                double ratio = image.getMeasuredWidth() / image.getMeasuredHeight();
+                height = (int) (width / ratio);
+            }catch(Exception e){
+                Log.d("EXCEPTION IMAGE:", e.toString());
+            }
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(width, height);
             image.setLayoutParams(lp1);
             piclayout.removeView(image);
             piclayout.addView(image);
