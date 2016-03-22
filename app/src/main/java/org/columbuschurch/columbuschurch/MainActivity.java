@@ -1,5 +1,7 @@
 package org.columbuschurch.columbuschurch;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,7 +20,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -122,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView;
+            final View rootView;
             TextView textView;
             switch (+getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
@@ -130,6 +139,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
+                    Button galbutton = (Button)rootView.findViewById(R.id.gallerybutton);
+                    galbutton.setOnClickListener(new View.OnClickListener() {
+                             @Override
+                             public void onClick(View view) {
+                                 Intent intent= new Intent(rootView.getContext(), Gallery.class);
+                                 startActivity(intent);
+                             }
+                         }
+                    );
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_contact, container, false);

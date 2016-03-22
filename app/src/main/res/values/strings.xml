@@ -6,7 +6,8 @@
     <string name="church_name">Syro Malabar Catholic Mission</string>
     <string name="address_label">Address:</string>
     <string name="church_address">Sacred Heart Church\n893 Hamlet St.\nColumbus OH 43201\nUSA</string>
-    <string-array name="gallery_jubilee2014">
+    <string-array name="gallery_1">
+        <item>Jubilee 2014 Gallery</item>
         <item>https://farm3.staticflickr.com/2945/15409693545_b75dcba4fc.jpg</item>
         <item>https://farm4.staticflickr.com/3929/15409365592_5e8fc56437.jpg</item>
         <item>https://farm3.staticflickr.com/2946/15223102148_9b25defeda.jpg</item>
