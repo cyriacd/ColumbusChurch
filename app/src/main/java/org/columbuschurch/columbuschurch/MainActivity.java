@@ -24,20 +24,10 @@ import android.widget.ImageView;
 //import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import static org.columbuschurch.columbuschurch.R.id.action_about;
+
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Feature Coming Soon...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                startAboutPage(view);
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Feature Coming Soon...", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                startAboutPage(view);
+//            }
+//        });
 
     }
 
@@ -89,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.action_about:
+            case action_about:
                 Snackbar.make(this.findViewById(android.R.id.content), "Code on Github", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 startAboutPage(findViewById(android.R.id.content).getRootView());
@@ -103,9 +93,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
@@ -177,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     addressText.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:39.98092039,-83.00011173?q=(Sacred+Heart+Catholic+Church+893+Hamlet+St+Columbus+OH)"));
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:39.98092039,-83.00011173?q=Sacred+Heart+Catholic+Church+893+Hamlet+St+Columbus+OH"));
                             startActivity(intent);
                         }
                     });
@@ -188,15 +175,16 @@ public class MainActivity extends AppCompatActivity {
                     starts.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent= new Intent(getContext(),ChurchNotification.class);
-                            getContext().startService(intent);
+//                            Intent intent= new Intent(getContext(),ChurchNotification.class);
+//                            getContext().startService(intent);
+                            Intent intent = new Intent(getContext(),Readings.class);
+                            intent.putExtra("DAY",0);
+                            startActivity(intent);
                         }
                     });
                     break;
                 default:
                     rootView = inflater.inflate(R.layout.fragment_main, container, false);
-                    textView = (TextView) rootView.findViewById(R.id.section_label);
-                    textView.setText("Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"http://www.flaticon.com\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a>");
                     break;
             }
 

@@ -26,7 +26,7 @@
                 android:src="@drawable/gallery0banner"
                 android:adjustViewBounds="true"
                 android:layout_marginBottom="20dp"
-                android:contentDescription="Gallery 1 banner" />
+                android:contentDescription="@string/gallery0desc" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:src="@drawable/gallery1banner"
                 android:layout_marginBottom="20dp"
                 android:adjustViewBounds="true"
-                android:contentDescription="Gallery 2 banner" />
+                android:contentDescription="@string/gallery1desc" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:src="@drawable/gallery2banner"
                 android:layout_marginBottom="20dp"
                 android:adjustViewBounds="true"
-                android:contentDescription="Gallery 3 banner" />
+                android:contentDescription="@string/gallery2desc" />
         </LinearLayout>
         </ScrollView>
 </RelativeLayout>

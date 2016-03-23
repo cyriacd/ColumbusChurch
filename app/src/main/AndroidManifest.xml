@@ -23,17 +23,26 @@
         </activity>
         <activity
             android:name=".Gallery"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".ChurchNotification"
             android:exported="false">
             <intent-filter>
-                <action android:name="org.columbuschurch.columbuschurch.ChurchNotification"></action>
+                <action android:name="org.columbuschurch.columbuschurch.ChurchNotification" />
             </intent-filter>
         </service>
 
-        <activity android:name=".AboutPage"></activity>
+        <activity android:name=".AboutPage" />
+        <activity
+            android:name=".Readings"
+            android:label="@string/title_activity_readings"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.columbuschurch.columbuschurch.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

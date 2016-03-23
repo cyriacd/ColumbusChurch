@@ -24,11 +24,6 @@ public class Gallery extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }catch(NullPointerException e){
-            e.printStackTrace();
-        }
         Bundle extras = getIntent().getExtras();
         int mGalID = 0;
         if(extras!=null){
@@ -48,9 +43,15 @@ public class Gallery extends AppCompatActivity {
                 urls = Arrays.asList(getResources().getStringArray(R.array.gallery_0));
                 break;
         }
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getActionBar().setTitle(urls.get(0));
+            getSupportActionBar().setTitle(urls.get(0));
+            getActionBar().setDisplayShowTitleEnabled(true);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
         setContentView(R.layout.activity_gallery);
-        TextView galleryname = (TextView) findViewById(R.id.gallery_name);
-        galleryname.setText(urls.get(0));
         for(int i=2;i<urls.size();i++){
             String url;
             url = urls.get(i);
@@ -63,6 +64,8 @@ public class Gallery extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+
 
     class getPictures extends AsyncTask<String, String, String> {
 
