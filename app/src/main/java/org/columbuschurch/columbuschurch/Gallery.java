@@ -1,13 +1,11 @@
 package org.columbuschurch.columbuschurch;
 
-import android.app.ActionBar;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +24,11 @@ public class Gallery extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
         Bundle extras = getIntent().getExtras();
         int mGalID = 0;
         if(extras!=null){
@@ -53,6 +56,12 @@ public class Gallery extends AppCompatActivity {
             url = urls.get(i);
             new getPictures().execute(url);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     class getPictures extends AsyncTask<String, String, String> {

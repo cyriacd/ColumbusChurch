@@ -13,7 +13,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +21,7 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+//import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,16 +34,16 @@ public class MainActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ViewPager mViewPager;
+        SectionsPagerAdapter mSectionsPagerAdapter;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,11 +63,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Feature Coming Soon...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startAboutPage(view);
             }
         });
 
     }
 
+    private void startAboutPage(View v){
+        Intent aboutPage = new Intent(v.getContext(),AboutPage.class);
+        startActivity(aboutPage);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_about:
                 Snackbar.make(this.findViewById(android.R.id.content), "Code on Github", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startAboutPage(findViewById(android.R.id.content).getRootView());
                 return true;
             case R.id.action_settings:
                 Snackbar.make(this.findViewById(android.R.id.content), "Settings...", Snackbar.LENGTH_LONG)
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
-                    LinearLayout piclayout = (LinearLayout) rootView.findViewById(R.id.gallery_banners_scroll_layout);
+                    //LinearLayout piclayout = (LinearLayout) rootView.findViewById(R.id.gallery_banners_scroll_layout);
                     ImageView gallery0 = (ImageView) rootView.findViewById(R.id.gallery0);
                     ImageView gallery1 = (ImageView) rootView.findViewById(R.id.gallery1);
                     ImageView gallery2 = (ImageView) rootView.findViewById(R.id.gallery2);
@@ -178,14 +183,20 @@ public class MainActivity extends AppCompatActivity {
                     });
                     break;
                 case 4:
-                    rootView = inflater.inflate(R.layout.fragment_main, container, false);
-                    textView = (TextView) rootView.findViewById(R.id.section_label);
-                    textView.setText("THIS");
+                    rootView = inflater.inflate(R.layout.fragment_news, container, false);
+                    Button starts = (Button) rootView.findViewById(R.id.test);
+                    starts.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent= new Intent(getContext(),ChurchNotification.class);
+                            getContext().startService(intent);
+                        }
+                    });
                     break;
                 default:
                     rootView = inflater.inflate(R.layout.fragment_main, container, false);
                     textView = (TextView) rootView.findViewById(R.id.section_label);
-                    textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+                    textView.setText("Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"http://www.flaticon.com\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a>");
                     break;
             }
 

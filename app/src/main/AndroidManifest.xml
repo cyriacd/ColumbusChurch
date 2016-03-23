@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.columbuschurch.columbuschurch">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -22,9 +23,17 @@
         </activity>
         <activity
             android:name=".Gallery"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
+        <service
+            android:name=".ChurchNotification"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="org.columbuschurch.columbuschurch.ChurchNotification"></action>
+            </intent-filter>
+        </service>
+
+        <activity android:name=".AboutPage"></activity>
     </application>
 
 </manifest>
