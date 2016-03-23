@@ -6,7 +6,7 @@
     <string name="church_name">Syro Malabar Catholic Mission</string>
     <string name="address_label">Address:</string>
     <string name="church_address">Sacred Heart Church\n893 Hamlet St.\nColumbus OH 43201\nUSA</string>
-    <string-array name="gallery_1">
+    <string-array name="gallery_0">
         <item>Jubilee 2014 Gallery</item>
         <item>https://farm3.staticflickr.com/2945/15409693545_b75dcba4fc.jpg</item>
         <item>https://farm4.staticflickr.com/3929/15409365592_5e8fc56437.jpg</item>
@@ -123,5 +123,82 @@
         <item>https://farm3.staticflickr.com/2946/15409818175_15c06c4779.jpg</item>
         <item>https://farm4.staticflickr.com/3930/15223066029_b134f0ae3f.jpg</item>
     </string-array>
+    <string-array name="gallery_1">
+        <item>Church Directory Photos</item>
+        <item>https://farm6.staticflickr.com/5606/15376456077_8f5a4ba771.jpg</item>
+        <item>https://farm6.staticflickr.com/5598/15538760206_319c07a444.jpg</item>
+        <item>https://farm6.staticflickr.com/5609/14941718464_eef9a87033.jpg</item>
+        <item>https://farm4.staticflickr.com/3936/15562471695_20ed622efb.jpg</item>
+        <item>https://farm6.staticflickr.com/5603/15375857029_795f114883.jpg</item>
+        <item>https://farm4.staticflickr.com/3938/15563313582_4a92326df0.jpg</item>
+        <item>https://farm4.staticflickr.com/3943/15562475085_3951755506.jpg</item>
+        <item>https://farm6.staticflickr.com/5597/15538765176_26e9838107.jpg</item>
+        <item>https://farm4.staticflickr.com/3927/15376837490_3991b8b9fd.jpg</item>
+        <item>https://farm4.staticflickr.com/3932/15375861269_303dedd4fd.jpg</item>
+        <item>https://farm6.staticflickr.com/5614/15538767616_0357ea48b8.jpg</item>
+        <item>https://farm4.staticflickr.com/3948/15376839520_9a9e12fc02.jpg</item>
+        <item>https://farm4.staticflickr.com/3940/15376347158_581730e656.jpg</item>
+        <item>https://farm6.staticflickr.com/5599/15376347808_3787b7c6cb.jpg</item>
+        <item>https://farm6.staticflickr.com/5610/15538770826_2180c7b05d.jpg</item>
+        <item>https://farm4.staticflickr.com/3945/15376350278_3c6453d180.jpg</item>
+        <item>https://farm6.staticflickr.com/5604/14942310383_18cef7516d.jpg</item>
+        <item>https://farm4.staticflickr.com/3938/15559813211_4b699bd7b7.jpg</item>
+        <item>https://farm4.staticflickr.com/3941/15562485795_24464a4152.jpg</item>
+        <item>https://farm6.staticflickr.com/5601/15538776946_eeff4b056f.jpg</item>
+        <item>https://farm4.staticflickr.com/3927/15376355578_5e9c2e23e0.jpg</item>
+        <item>https://farm6.staticflickr.com/5612/15563328892_0923bebd77.jpg</item>
+        <item>https://farm8.staticflickr.com/7792/18147550905_e065840e19.jpg</item>
+        <item>https://farm8.staticflickr.com/7793/18144026932_d6a0987970.jpg</item>
+        <item>https://farm9.staticflickr.com/8784/18144029142_f0e0e8f735.jpg</item>
+        <item>https://farm8.staticflickr.com/7788/18121060776_d4200dff1c.jpg</item>
+        <item>https://farm9.staticflickr.com/8761/17959679508_63d8c66320.jpg</item>
+        <item>https://farm9.staticflickr.com/8835/18144039752_3c93a54ed2.jpg</item>
+        <item>https://farm9.staticflickr.com/8845/18148683381_38bbea60c2.jpg</item>
+        <item>https://farm9.staticflickr.com/8797/17959697718_3b22691806.jpg</item>
+        <item>https://farm9.staticflickr.com/8851/17526995013_083336a3f7.jpg</item>
+        <item>https://farm8.staticflickr.com/7793/17961344589_0b35c50b7d.jpg</item>
+        <item>https://farm8.staticflickr.com/7749/17959705388_9974a72499.jpg</item>
+        <item>https://farm9.staticflickr.com/8772/17959878440_4f9bc4724b.jpg</item>
+        <item>https://farm8.staticflickr.com/7789/17527004723_3e382432f1.jpg</item>
+        <item>https://farm8.staticflickr.com/7795/17959883180_5761a6545b.jpg</item>
+        <item>https://farm8.staticflickr.com/7753/17524989094_6b4bd0a74f.jpg</item>
+        <item>https://farm9.staticflickr.com/8876/17527012743_e4c323442a.jpg</item>
+        <item>https://farm9.staticflickr.com/8780/17961361699_efeb1bd8e3.jpg</item>
+        <item>https://farm9.staticflickr.com/8758/18144077042_5888cab2cd.jpg</item>
+        <item>https://farm9.staticflickr.com/8892/18147606615_4ce3ba5bd4.jpg</item>
+        <item>https://farm8.staticflickr.com/7797/18148725881_7e27fe6096.jpg</item>
+        <item>https://farm8.staticflickr.com/7778/18121115466_6afcdbdb8a.jpg</item>
+        <item>https://farm8.staticflickr.com/7756/17961389519_a0e9acce8f.jpg</item>
+        <item>https://farm9.staticflickr.com/8834/17973071868_e8f6a07955.jpg</item>
+        <item>https://farm9.staticflickr.com/8831/17975447569_e0202c0a1b.jpg</item>
+        <item>https://farm8.staticflickr.com/7783/18135343116_64b5c8ff83.jpg</item>
+        <item>https://farm4.staticflickr.com/3932/15375861269_303dedd4fd.jpg</item>
+        <item>https://farm8.staticflickr.com/7784/17993682118_d1dfecc90f.jpg</item>
+        <item>https://farm9.staticflickr.com/8857/17559052344_1d0f31646e.jpg</item>
+        <item>https://farm8.staticflickr.com/7789/18183688451_33c3c10d1e.jpg</item>
+        <item>https://farm1.staticflickr.com/380/18347004945_0f14fb5af4.jpg</item>
+    </string-array>
+    <string-array name="gallery_2">
+        <item>Church Events</item>
+        <item>https://farm8.staticflickr.com/7750/18219346985_5562e489a0.jpg</item>
+        <item>https://farm8.staticflickr.com/7747/18031517568_061c110ac2.jpg</item>
+        <item>https://farm8.staticflickr.com/7752/18031520298_8d0e78011b.jpg</item>
+        <item>https://farm8.staticflickr.com/7795/18031522418_b6e1e00589.jpg</item>
+        <item>https://farm9.staticflickr.com/8877/18219356065_af334b7764.jpg</item>
+        <item>https://farm9.staticflickr.com/8888/18031624780_27fc578553.jpg</item>
+        <item>https://farm8.staticflickr.com/7788/18192876566_6a00758089.jpg</item>
+        <item>https://farm9.staticflickr.com/8772/18219362755_5c87559e09.jpg</item>
+        <item>https://farm9.staticflickr.com/8842/18031532788_177bde52e0.jpg</item>
+        <item>https://farm8.staticflickr.com/7752/18031633120_deae8efb74.jpg</item>
+        <item>https://farm9.staticflickr.com/8880/18031537278_e2f8208171.jpg</item>
+        <item>https://farm9.staticflickr.com/8821/18031539388_a6589c8f9d.jpg</item>
+        <item>https://farm8.staticflickr.com/7785/18033164979_5548ea83e2.jpg</item>
+        <item>https://farm8.staticflickr.com/7768/18031543298_96fa087f12.jpg</item>
+        <item>https://farm9.staticflickr.com/8818/18215687282_3cc2c4b4a9.jpg</item>
+        <item>https://farm9.staticflickr.com/8844/18192895806_f4b4000a85.jpg</item>
+        <item>https://farm8.staticflickr.com/7781/17598716183_b42e611fe5.jpg</item>
+        <item>https://farm9.staticflickr.com/8837/18215691302_f4f14768a7.jpg</item>
+    </string-array>
+
 
 </resources>

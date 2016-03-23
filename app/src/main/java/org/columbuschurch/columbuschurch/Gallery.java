@@ -1,5 +1,6 @@
 package org.columbuschurch.columbuschurch;
 
+import android.app.ActionBar;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,9 +26,27 @@ public class Gallery extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        int mGalID = 0;
+        if(extras!=null){
+            mGalID = extras.getInt("GALLERY_ID");
+        }
+        switch (mGalID){
+            case 0:
+                urls = Arrays.asList(getResources().getStringArray(R.array.gallery_0));
+                break;
+            case 1:
+                urls = Arrays.asList(getResources().getStringArray(R.array.gallery_1));
+                break;
+            case 2:
+                urls = Arrays.asList(getResources().getStringArray(R.array.gallery_2));
+                break;
+            default:
+                urls = Arrays.asList(getResources().getStringArray(R.array.gallery_0));
+                break;
+        }
         setContentView(R.layout.activity_gallery);
         TextView galleryname = (TextView) findViewById(R.id.gallery_name);
-        urls = Arrays.asList(getResources().getStringArray(R.array.gallery_1));
         galleryname.setText(urls.get(0));
         for(int i=2;i<urls.size();i++){
             String url;
@@ -67,19 +87,13 @@ public class Gallery extends AppCompatActivity {
             image = new ImageView(Gallery.this);
             image.setImageBitmap(bmImg);
             piclayout.addView(image);
-            View parent = (View)image.getParent();
-            int width = parent.getWidth();
-            int height = (int)(width*1.0);
-            try {
-                double ratio = image.getMeasuredWidth() / image.getMeasuredHeight();
-                height = (int) (width / ratio);
-            }catch(Exception e){
-                Log.d("EXCEPTION IMAGE:", e.toString());
-            }
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(width, height);
-            image.setLayoutParams(lp1);
-            piclayout.removeView(image);
-            piclayout.addView(image);
+            image.getLayoutParams().width=ViewGroup.LayoutParams.MATCH_PARENT;
+            image.getLayoutParams().height=ViewGroup.LayoutParams.WRAP_CONTENT;
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0,0,0,20);
+            image.setLayoutParams(params);
+            image.setAdjustViewBounds(true);
+            image.requestLayout();
         }
     }
 

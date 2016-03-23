@@ -1,6 +1,7 @@
 package org.columbuschurch.columbuschurch;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -130,18 +134,48 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
-                    Button galbutton = (Button)rootView.findViewById(R.id.gallerybutton);
-                    galbutton.setOnClickListener(new View.OnClickListener() {
+                    LinearLayout piclayout = (LinearLayout) rootView.findViewById(R.id.gallery_banners_scroll_layout);
+                    ImageView gallery0 = (ImageView) rootView.findViewById(R.id.gallery0);
+                    ImageView gallery1 = (ImageView) rootView.findViewById(R.id.gallery1);
+                    ImageView gallery2 = (ImageView) rootView.findViewById(R.id.gallery2);
+                    gallery0.setOnClickListener(new View.OnClickListener() {
                              @Override
                              public void onClick(View view) {
                                  Intent intent= new Intent(rootView.getContext(), Gallery.class);
+                                 intent.putExtra("GALLERY_ID", 0);
                                  startActivity(intent);
                              }
                          }
                     );
+                    gallery1.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View view) {
+                                                        Intent intent= new Intent(rootView.getContext(), Gallery.class);
+                                                        intent.putExtra("GALLERY_ID", 1);
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                    );
+                    gallery2.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View view) {
+                                                        Intent intent= new Intent(rootView.getContext(), Gallery.class);
+                                                        intent.putExtra("GALLERY_ID", 2);
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                    );
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_contact, container, false);
+                    TextView addressText = (TextView)rootView.findViewById(R.id.address);
+                    addressText.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:39.98092039,-83.00011173?q=(Sacred+Heart+Catholic+Church+893+Hamlet+St+Columbus+OH)"));
+                            startActivity(intent);
+                        }
+                    });
                     break;
                 case 4:
                     rootView = inflater.inflate(R.layout.fragment_main, container, false);
