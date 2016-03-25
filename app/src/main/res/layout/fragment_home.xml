@@ -8,4 +8,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.columbuschurch.columbuschurch.MainActivity$PlaceholderFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gallery_banners_scrollview"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gallery_banners_scroll_layout"
+        android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gallery0"
+        android:src="@drawable/gallery0banner"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="CHURCH IMAGE" />
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

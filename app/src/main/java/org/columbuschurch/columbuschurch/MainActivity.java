@@ -1,6 +1,9 @@
 package org.columbuschurch.columbuschurch;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,14 +28,19 @@ import android.widget.ImageView;
 //import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.security.spec.ECField;
+import java.util.Calendar;
+
 import static org.columbuschurch.columbuschurch.R.id.action_about;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ViewPager mViewPager;
         SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -47,15 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Feature Coming Soon...", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//                startAboutPage(view);
-//            }
-//        });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAboutPage(view);
+            }
+        });
 
     }
 
@@ -63,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         Intent aboutPage = new Intent(v.getContext(),AboutPage.class);
         startActivity(aboutPage);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,18 +89,21 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id) {
             case action_about:
-                Snackbar.make(this.findViewById(android.R.id.content), "Code on Github", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(this.findViewById(android.R.id.content), "Code on Github", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
                 startAboutPage(findViewById(android.R.id.content).getRootView());
                 return true;
             case R.id.action_settings:
-                Snackbar.make(this.findViewById(android.R.id.content), "Settings...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(this.findViewById(android.R.id.content), "Settings...", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent startSettingsPage = new Intent(this,Settings.class);
+                startActivity(startSettingsPage);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    public int currentPage =0 ;
 
     public static class PlaceholderFragment extends Fragment {
         /**
@@ -115,16 +127,20 @@ public class MainActivity extends AppCompatActivity {
             return fragment;
         }
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             final View rootView;
-            TextView textView;
-            switch (+getArguments().getInt(ARG_SECTION_NUMBER)) {
-                case 1:
+            ViewPager viewPager = new ViewPager(this.getContext());
+            Log.d("THIS PAGE: ", Integer.toString(viewPager.getCurrentItem()));
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 0:
+                    Log.d("Section Number:", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
                     rootView = inflater.inflate(R.layout.fragment_home, container, false);
                     break;
-                case 2:
+                case 1:
+                    Log.d("Section Number:", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
                     rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
                     //LinearLayout piclayout = (LinearLayout) rootView.findViewById(R.id.gallery_banners_scroll_layout);
                     ImageView gallery0 = (ImageView) rootView.findViewById(R.id.gallery0);
@@ -158,7 +174,8 @@ public class MainActivity extends AppCompatActivity {
                                                 }
                     );
                     break;
-                case 3:
+                case 2:
+                    Log.d("Section Number:", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
                     rootView = inflater.inflate(R.layout.fragment_contact, container, false);
                     TextView addressText = (TextView)rootView.findViewById(R.id.address);
                     addressText.setOnClickListener(new View.OnClickListener() {
@@ -169,14 +186,15 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                     break;
-                case 4:
+                case 3:
+                    Log.d("Section Number:", Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
                     rootView = inflater.inflate(R.layout.fragment_news, container, false);
                     Button starts = (Button) rootView.findViewById(R.id.test);
                     starts.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-//                            Intent intent= new Intent(getContext(),ChurchNotification.class);
-//                            getContext().startService(intent);
+                            Intent intent1= new Intent(getContext(),CurrentReadingNotification.class);
+                            getContext().startService(intent1);
                             Intent intent = new Intent(getContext(),Readings.class);
                             intent.putExtra("DAY",0);
                             startActivity(intent);
@@ -206,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position);
         }
 
         @Override
